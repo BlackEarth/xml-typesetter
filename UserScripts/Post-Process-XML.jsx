@@ -4,10 +4,8 @@
 
 function main() {
 	$.writeln("[" + Date().toString() + "] Post-Process-XML");
-	insertElementText(".//pub:x000D", '\r');				// paragraph return
+	insertElementText(".//pub:x000A", '\r');				// paragraph return
 	insertElementText(".//pub:x202F", '\u202F');			// narrow non-breaking space
-	insertElementText(".//pub:tab[not(@indent)]", '\t');	// (regular) tab
-	insertElementText(".//html:br", SpecialCharacters.FORCED_LINE_BREAK);
 	insertElementText(".//pub:x2011", SpecialCharacters.NONBREAKING_HYPHEN);
 	insertElementText(".//pub:x2002", SpecialCharacters.EN_SPACE);
 	insertElementText(".//pub:x2003", SpecialCharacters.EM_SPACE);
@@ -17,14 +15,16 @@ function main() {
 	insertElementText(".//pub:x00AD", SpecialCharacters.DISCRETIONARY_HYPHEN);
 	insertElementText(".//pub:x00A0", SpecialCharacters.NONBREAKING_SPACE);
 	insertElementText(".//pub:x2008", SpecialCharacters.PUNCTUATION_SPACE);
+	insertElementText(".//pub:tab[not(@indent)]", '\t');	// (regular) tab
 	insertElementText(".//pub:tab[@indent='right']", SpecialCharacters.RIGHT_INDENT_TAB);
 	insertElementText(".//pub:tab[@indent='here']", SpecialCharacters.INDENT_HERE_TAB);
+	insertElementText(".//pub:linebreak", SpecialCharacters.FORCED_LINE_BREAK);
 	insertElementText(".//pub:colbreak", SpecialCharacters.COLUMN_BREAK);
 	insertElementText(".//pub:framebreak", SpecialCharacters.FRAME_BREAK);
 	insertElementText(".//pub:pagebreak[not(@class)]", SpecialCharacters.PAGE_BREAK);
 	insertElementText(".//pub:pagebreak[@class='even']", SpecialCharacters.EVEN_PAGE_BREAK);
 	insertElementText(".//pub:pagebreak[@class='odd']", SpecialCharacters.ODD_PAGE_BREAK);
-	insertElementText(".//pub:end_nested_style", SpecialCharacters.END_NESTED_STYLE);
+	// insertElementText(".//pub:end-nested-style", SpecialCharacters.END_NESTED_STYLE);
 
 	setDefaultCharacterStyle();
 	// setColumnWidths();
