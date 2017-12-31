@@ -1,5 +1,5 @@
 
-#include "namespaces.js";
+#include "./namespaces.js";
 
 function setDefaultCharacterStyle(document) {
 	$.writeln("[" + Date().toString() + "] setDefaultCharacterStyle()");
